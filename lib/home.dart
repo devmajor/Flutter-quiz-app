@@ -8,14 +8,17 @@ class homepage extends StatefulWidget {
 class _homepageState extends State<homepage> {
   List<String> images = [
     "images/1.jpg",
-    "images/2.png",
-    "images/3.jpg"
+    "images/1.png",
+    // "images/3.jpg"
   ];
 
   Widget customcard(String langname, String image) {
     return Padding(
       padding: EdgeInsets.all(20.0),
       child: InkWell(
+        onTap: () {
+          debugPrint("Card Tapped");
+        },
         child: Material(
           color: Colors.indigoAccent,
           elevation: 10.0,
@@ -33,6 +36,7 @@ class _homepageState extends State<homepage> {
                         width: 200.0,
                         child: ClipOval(
                           child: Image(
+                            fit: BoxFit.cover,
                             image: AssetImage(
                               image,
                             ),
