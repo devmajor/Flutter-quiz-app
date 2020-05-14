@@ -18,6 +18,7 @@ class _homepageState extends State<homepage> {
   ];
 
   List<String> des = [
+    "Learn English Language and be proficient",
     "Python is one of the most popular and fastest programming language since half a decade.\nIf You think you have learnt it.. \nJust test yourself !!",
     "Java has always been one of the best choices for Enterprise World. If you think you have learn the Language...\nJust Test Yourself !!",
     "Javascript is one of the most Popular programming language supporting the Web.\nIt has a wide range of Libraries making it Very Powerful !",
@@ -34,8 +35,6 @@ class _homepageState extends State<homepage> {
       child: InkWell(
         onTap: (){
           Navigator.of(context).pushReplacement(MaterialPageRoute(
-            // in changelog 1 we will pass the langname name to ther other widget class
-            // this name will be used to open a particular JSON file 
             // for a particular language
             builder: (context) => getjson(langname),
           ));
@@ -118,6 +117,7 @@ class _homepageState extends State<homepage> {
       ),
       body: ListView(
         children: <Widget>[
+          customcard("English", images[0], des[0]),
           customcard("Python", images[0], des[0]),
           customcard("Java", images[1], des[1]),
           customcard("Javascript", images[2], des[2]),

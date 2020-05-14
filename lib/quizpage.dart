@@ -16,7 +16,9 @@ class getjson extends StatelessWidget {
   // sets the asset to a particular JSON file
   // and opens the JSON
   setasset() {
-    if (langname == "Python") {
+    if (langname == "English") {
+      assettoload = "assets/english.json";
+    } else if (langname == "Python") {
       assettoload = "assets/python.json";
     } else if (langname == "Java") {
       assettoload = "assets/java.json";
@@ -88,8 +90,6 @@ class _quizpageState extends State<quizpage> {
 
   bool canceltimer = false;
 
-  // code inserted for choosing questions randomly
-  // to create the array elements randomly use the dart:math module
   // -----     CODE TO GENERATE ARRAY RANDOMLY
 
   genrandomarray(){
@@ -107,23 +107,7 @@ class _quizpageState extends State<quizpage> {
       print(random_array);
   }
 
-  //   var random_array;
-  //   var distinctIds = [];
-  //   var rand = new Random();
-  //     for (int i = 0; ;) {
-  //     distinctIds.add(rand.nextInt(10));
-  //       random_array = distinctIds.toSet().toList();
-  //       if(random_array.length < 10){
-  //         continue;
-  //       }else{
-  //         break;
-  //       }
-  //     }
-  //   print(random_array);
-
-  // ----- END OF CODE
-  // var random_array = [1, 6, 7, 2, 4, 10, 8, 3, 9, 5];
-
+ 
   // overriding the initstate function to start timer as this screen is created
   @override
   void initState() {
@@ -178,23 +162,14 @@ class _quizpageState extends State<quizpage> {
   }
 
   void checkanswer(String k) {
-    // in the previous version this was
-    // mydata[2]["1"] == mydata[1]["1"][k]
-    // which i forgot to change
-    // so nake sure that this is now corrected
+   
     if (mydata[2][i.toString()] == mydata[1][i.toString()][k]) {
-      // just a print sattement to check the correct working
-      // debugPrint(mydata[2][i.toString()] + " is equal to " + mydata[1][i.toString()][k]);
       marks = marks + 5;
-      // changing the color variable to be green
       colortoshow = right;
     } else {
-      // just a print sattement to check the correct working
-      // debugPrint(mydata[2]["1"] + " is equal to " + mydata[1]["1"][k]);
       colortoshow = wrong;
     }
     setState(() {
-      // applying the changed color to the particular button that was selected
       btncolor[k] = colortoshow;
       canceltimer = true;
     });
