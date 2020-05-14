@@ -1,16 +1,16 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:flutterquizapp/home.dart';
+import 'package:quizstar/home.dart';
 
-class splashScreen extends StatefulWidget {
+class splashscreen extends StatefulWidget {
   @override
-  _splashScreenState createState() => _splashScreenState();
+  _splashscreenState createState() => _splashscreenState();
 }
 
-class _splashScreenState extends State<splashScreen> {
+class _splashscreenState extends State<splashscreen> {
+
   @override
-  void initState() {
+  void initState(){
     super.initState();
     Timer(Duration(seconds: 3), (){
       Navigator.of(context).pushReplacement(MaterialPageRoute(
@@ -19,14 +19,21 @@ class _splashScreenState extends State<splashScreen> {
     });
   }
 
+  // added test yourself
+  // and made the text to align at center 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: Colors.indigo,
       body: Center(
         child: Text(
-          "Quiz App",
-          style: TextStyle(fontSize: 50.0, color: Colors.white),
+          "Quizstar\nTest Yourself !!",
+          style: TextStyle(
+            fontSize: 50.0,
+            color: Colors.white,
+            fontFamily: "Satisfy",
+          ),
+          textAlign: TextAlign.center,
         ),
       ),
     );
